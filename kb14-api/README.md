@@ -5,9 +5,9 @@ Before running
 --------------
 
 * Make sure you got `gevent`, `flask` and `mongoengine`, and make sure you're running
-it under uWSGI (see `kb14-api.ini.example` for an example uWSGI config;
+it under uWSGI (see `kb14-api.ini.example` for an example uWSGI config).
 
-* rename `config.py.example` as `config.py` and edit it if your MongoDB server
+* Rename `config.py.example` as `config.py` and edit it if your MongoDB server
 is not on the same machine.
 
 
