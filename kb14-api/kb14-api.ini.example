@@ -1,0 +1,70 @@
+[uwsgi]
+plugins = python27,gevent27
+socket = 127.0.0.1:5014
+master = true
+
+lazy-apps = true
+
+gevent = 10000
+gevent-monkey-patch = true
+
+processes = 8
+enable-threads = true
+buffer-size = 8192
+listen = 1000
+
+log-syslog = uwsgi.kb14
+
+chdir = /var/www/kb14-api/
+file = kb14.py
+callable = app
+
+uid = nginx
+gid = nginx
+
+max-requests = 500
+subscribe-to = 127.0.0.1:3615:kb14.myhost.com
+touch-reload = /var/www/kb14-api/kb14.py
+
+enable-metrics = 1
+metrics-no-cores = true
+carbon = 127.0.0.1:2003
+carbon-freq = 1
+carbon-id = kb14
+carbon-use-metrics = true
+
+spooler = /var/spool/uwsgi/kb14
+spooler-import = kb14.spooler
+spooler-processes = 2
+spooler-max-tasks = 500
+spooler-ordered = true
+spooler-frequency = 10
+
+metric = name=application.keyboards.all.all,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.all,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.a,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.b,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.c,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.d,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.e,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.f,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.g,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.h,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.i,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.j,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.k,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.l,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.m,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.n,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.o,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.p,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.q,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.r,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.s,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.t,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.u,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.v,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.w,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.x,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.y,reset_after_push=1,type=counter,initial_value=0
+metric = name=application.keyboards.blue.z,reset_after_push=1,type=counter,initial_value=0
